@@ -1,3 +1,5 @@
+from collections import Counter
+
 def main():
     # reads the book
     book_path = "books/frankenstein.txt"
@@ -10,13 +12,14 @@ def main():
 
     # counts the letters
     letter_list = []
-    letter_dict = {}
-    letter_count = 0
+    # letter_count = 0
     for letters in lower_words:
         alpha = "".join(char for char in letters if char.isalpha())
         letter_list.append(alpha)
-        for letter in letter_list:
-            letter_dict[letter] = 1
+        # for letter in letter_list:
+        #     letter_count += 1
+        #     letter_dict = dict.fromkeys(letter, letter_count)
+    letter_dict = Counter(letter_list)
 
     # returns
     print(letter_dict)
