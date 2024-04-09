@@ -16,21 +16,19 @@ def main():
             letter_dict[lower_words] += 1
         else:
             letter_dict[lower_words] = 1
-    
+
     # create dict for each letter
     for char in letter_dict:
-        new_dict = {}
         count = letter_dict[char]
-        new_dict[char] = count
+        new_dict = {'char': char, 'count': count}
         if char.isalpha():
             dict_list.append(new_dict)
-
 
     # returns
     print(f"--- Begin report of {book_path} ---")
     print(f"{word_count} words found in this book.")
-    print(dict_list)
-    # print(f"The letter {letter_dict[0]} was found {letter_dict[1]} times.")
+    for item in dict_list:
+        print(f"The letter {item['char']} was found {item['count']} times.")
     print(f"--- End report ---")
 
 main()
